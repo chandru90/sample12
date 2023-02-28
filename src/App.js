@@ -1,21 +1,22 @@
 import ExpenseItem from "./components/ExpenseItem";
 const expense =[
-  { amount : 200 , title:"food" ,location : "pondy"},
-  { amount : 300 , title:"movie",location :"pondy"},
-  { amount : 400 , title:"petrol",location :"pondy"},
-  { amount : 200 , title:"grocery",location :"pondy"}
+  {date : new Date(2021,3,14), amount : 200 , title:"movie"},
+  {date : new Date(2021,3,14), amount : 300 , title:"hotel"},
+  {date : new Date(2021,3,14), amount : 400 , title:"grocery"},
+  {date : new Date(2021,3,14), amount : 200 , title:"travel"}
 
 ]
 function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      <ExpenseItem title ={expense[0].title } amount={expense[0].amount} location={expense[0].location}></ExpenseItem>
-      <ExpenseItem title ={expense[1].title } amount={expense[1].amount} location={expense[1].location}></ExpenseItem>
-      <ExpenseItem title ={expense[2].title } amount={expense[2].amount} location={expense[2].location}></ExpenseItem>
-      <ExpenseItem title ={expense[3].title } amount={expense[3].amount}location={expense[3].location}></ExpenseItem>
+      <ExpenseItem title ={expense[0].title } amount={expense[0].amount} date={expense[0].date}></ExpenseItem>
+      <ExpenseItem title ={expense[1].title } amount={expense[1].amount} date={expense[1].date}></ExpenseItem>
+      <ExpenseItem title ={expense[2].title } amount={expense[2].amount} date={expense[2].date}></ExpenseItem>
+      <ExpenseItem title ={expense[3].title } amount={expense[3].amount} date={expense[3].date}></ExpenseItem>
     </div>
   );
 }
 
 export default App;
+
