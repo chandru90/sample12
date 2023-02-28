@@ -3,10 +3,12 @@ import ExpenseItem from './components/ExpenseItem';
 import NewExpense from './components/newexpense/NewExpense';
 
 function App() {
-
+const addexpense =(exp)=>{
+  console.log(exp)
+}
   return (
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense onadd ={addexpense}></NewExpense>
       
     </div>
   );

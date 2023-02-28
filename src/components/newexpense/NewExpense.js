@@ -1,9 +1,13 @@
 import NewExpenseForm from "./NewExpenseForm";
 import './NewExpense.css'
-const NewExpense = () => {
+const NewExpense = (props) => {
+    const saveexpensedatahandler=(enterexpensedata)=>{
+        const expensedata = {...enterexpensedata }
+        props.onadd(expensedata)
+    }
   return (
     <div className="new-expense">
-      <NewExpenseForm> </NewExpenseForm>
+      <NewExpenseForm onsaveexpensedata ={saveexpensedatahandler}> </NewExpenseForm>
     </div>
   );
 };
