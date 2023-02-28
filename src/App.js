@@ -1,22 +1,36 @@
-import ExpenseItem from "./components/ExpenseItem";
-const expense =[
-  {date : new Date(2021,3,14), amount : 200 , title:"movie"},
-  {date : new Date(2021,3,14), amount : 300 , title:"hotel"},
-  {date : new Date(2021,3,14), amount : 400 , title:"grocery"},
-  {date : new Date(2021,3,14), amount : 200 , title:"travel"}
+import React, { useState } from 'react';
+import ExpenseItem from './components/ExpenseItem';
 
-]
+const expenses = [
+  { date: new Date(2021, 3, 14), amount: 200, title: 'movie' },
+  { date: new Date(2021, 3, 14), amount: 300, title: 'hotel' },
+  { date: new Date(2021, 3, 14), amount: 400, title: 'grocery' },
+  { date: new Date(2021, 3, 14), amount: 200, title: 'travel' }
+];
+
 function App() {
+  const [expenseList, setExpenseList] = useState(expenses);
+
+  const deleteExpenseHandler = (index) => {
+    const updatedExpenseList = [...expenseList];
+    updatedExpenseList.splice(index, 1);
+    setExpenseList(updatedExpenseList);
+  };
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      <ExpenseItem title ={expense[0].title } amount={expense[0].amount} date={expense[0].date}></ExpenseItem>
-      <ExpenseItem title ={expense[1].title } amount={expense[1].amount} date={expense[1].date}></ExpenseItem>
-      <ExpenseItem title ={expense[2].title } amount={expense[2].amount} date={expense[2].date}></ExpenseItem>
-      <ExpenseItem title ={expense[3].title } amount={expense[3].amount} date={expense[3].date}></ExpenseItem>
+      {expenseList.map((expense, index) => (
+        <ExpenseItem
+          key={index}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          onDelete={() => deleteExpenseHandler(index)}
+        />
+      ))}
     </div>
   );
 }
 
 export default App;
-
