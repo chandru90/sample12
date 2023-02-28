@@ -7,8 +7,7 @@ function App() {
   return (
     <div>
       <NewExpense></NewExpense>
-      <NewExpense></NewExpense>
-      <NewExpense></NewExpense>
+      
     </div>
   );
 }
